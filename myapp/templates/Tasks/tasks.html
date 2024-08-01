@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% extends 'layouts/base.html'%}
+    {% block content %}
+    <h1>Tasks</h1>
+
+    {% for task in tasks %}
+
+        <div>
+    {# Esto es un comentario de jinja #}
+            <h1>{% if task.done == False%} ⌛ {% else %} ✅ {%endif%} Task: {{task.title}} </h1> 
+
+            <p>Description: {{task.description}}</p>
+            <p>Project: {{task.project}}</p> 
+            <button>
+                Delete
+            </button>
+            <button>
+                Done ✅
+            </button>
+
+            <br>   
+        </div>
+    {% endfor %}
+    {% endblock %}
+</body>
+</html>
